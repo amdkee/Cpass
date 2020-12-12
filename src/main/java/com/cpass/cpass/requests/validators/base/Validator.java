@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.cpass.cpass.validators.base;
+package com.cpass.cpass.requests.validators.base;
 
 import com.cpass.cpass.exceptions.CpassError;
 import com.cpass.cpass.exceptions.CpassException;
@@ -25,7 +20,7 @@ public abstract class Validator<T> {
     }
 
     public void validate(T body) {
-        if(body == null){
+        if (body == null) {
             addValidationError("Body should not be empty");
         }
         throwIfError();
@@ -40,8 +35,8 @@ public abstract class Validator<T> {
             throw new CpassException(errors);
         }
     }
-    
-    protected void clearError(){
+
+    protected void clearError() {
         errors = new ArrayList<>();
     }
 }
