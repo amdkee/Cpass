@@ -1,7 +1,7 @@
 package com.cpass.cpass.exceptions.responses;
 
 import com.cpass.cpass.exceptions.CpassError;
-import com.cpass.cpass.exceptions.responses.base.BaseExceptionResponseBody;
+import com.cpass.cpass.exceptions.responses.base.ExceptionResponseBody;
 
 import java.util.Date;
 import java.util.List;
@@ -15,7 +15,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class CpassExceptionResponseBody extends BaseExceptionResponseBody {
+public class CpassExceptionResponseBody extends ExceptionResponseBody {
 
     List<CpassError> errors;
 

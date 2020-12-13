@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.cpass.cpass.exceptions.responses.CpassExceptionResponseBody;
-import com.cpass.cpass.exceptions.responses.ExceptionResponseBody;
-import com.cpass.cpass.exceptions.responses.base.BaseExceptionResponseBody;
+import com.cpass.cpass.exceptions.responses.HttpMessageNotReadableExceptionResponseBody;
+import com.cpass.cpass.exceptions.responses.base.ExceptionResponseBody;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 
 /**
  *
@@ -29,16 +30,16 @@ public class ExceptionResolver {
     @ExceptionHandler(CpassException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public BaseExceptionResponseBody resolveAndWriteCpassException(CpassException exception, HttpServletRequest request) {
+    public ExceptionResponseBody resolveAndWriteCpassException(CpassException exception, HttpServletRequest request) {
         logger.error(exception.getErrors().toString());
         return new CpassExceptionResponseBody(exception.getErrors(), new Date(), request.getRequestURI());
     }
 
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public BaseExceptionResponseBody resolveAndWriteException(Exception exception, HttpServletRequest request) {
+    public ExceptionResponseBody resolveAndWriteException(HttpMessageNotReadableException exception, HttpServletRequest request) {
         logger.error(exception.getMessage());
-        return new ExceptionResponseBody(exception.getMessage(), new Date(), request.getRequestURI());
+        return new HttpMessageNotReadableExceptionResponseBody(exception.getMessage(), new Date(), request.getRequestURI());
     }
 }

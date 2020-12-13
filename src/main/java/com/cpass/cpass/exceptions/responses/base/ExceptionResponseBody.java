@@ -11,12 +11,12 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class BaseExceptionResponseBody {
+public class ExceptionResponseBody {
 
     Date timeStamp;
     String path;
 
-    public BaseExceptionResponseBody(Date timeStamp, String path) {
+    public ExceptionResponseBody(Date timeStamp, String path) {
         this.timeStamp = timeStamp;
         this.path = path;
     }
