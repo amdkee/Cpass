@@ -1,7 +1,6 @@
 package com.cpass.cpass.exceptions;
 
 import java.util.List;
-import java.util.Objects;
 import lombok.EqualsAndHashCode;
 
 import lombok.Getter;
@@ -12,6 +11,8 @@ import lombok.ToString;
  *
  * @author Laughmare
  */
+
+//Our custom exception to handle valdiations and other things as we wish.
 @Getter
 @Setter
 @EqualsAndHashCode

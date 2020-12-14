@@ -21,9 +21,10 @@ public class CpassController {
     @Autowired
     CpassService cpassService;
 
+    //request body made non-required so we can validate it and send an error list when its empty
     @PostMapping("/makeCall")
     public ResponseEntity<MakeCallResponseBody> makeCall(@RequestBody(required = false) MakeCallRequestBody body) {
-        MakeCallResponseBody response = cpassService.makeCall(body);
+        MakeCallResponseBody response = cpassService.makeCall(body);//everything happens in services
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

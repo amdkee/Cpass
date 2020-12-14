@@ -21,6 +21,7 @@ public class CpassMakeCallValidator extends Validator<MakeCallRequestBody> {
         super();
     }
 
+    //If the provided call type string is not in our enums do not throw an error. but catch it and return false 
     private Boolean validateCallType(String callType) {
         try {
             CallType.valueOf(callType.toUpperCase(Locale.getDefault()));
@@ -34,6 +35,7 @@ public class CpassMakeCallValidator extends Validator<MakeCallRequestBody> {
         return true;
     }
 
+    //actual validations are done here. Errors are added to a list, and than inserted into the exception message list.
     @Override
     public void validate(MakeCallRequestBody body) {
         clearError();

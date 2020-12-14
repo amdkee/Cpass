@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
-
+//Test method names are quite self explanatory.
 @SpringBootTest
 class MakeCallTests {
 
@@ -26,6 +26,7 @@ class MakeCallTests {
     @Autowired
     private CpassService service;
     
+    //Error list is cleared before each test
     @BeforeEach
     private void beforeEach(){
         helper.setErrorList(new ArrayList<CpassError>());

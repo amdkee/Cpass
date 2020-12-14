@@ -27,15 +27,18 @@ public class ExceptionResolver {
 
     Logger logger = LoggerFactory.getLogger(ExceptionResolver.class);
 
+    //if a CpassException is thrown this method will handle the response.
     @ExceptionHandler(CpassException.class)
     @ResponseBody
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)//will return an internal server error(500)
     public ExceptionResponseBody resolveAndWriteCpassException(CpassException exception, HttpServletRequest request) {
         logger.error(exception.getErrors().toString());
         return new CpassExceptionResponseBody(exception.getErrors(), new Date(), request.getRequestURI());
     }
 
-    @ExceptionHandler(HttpMessageNotReadableException.class)
+
+    //if a HttpMessageNotReadableException is thrown this method will handle the response. This happens when the request body has parsing errors
+    @ExceptionHandler(HttpMessageNotReadableException.class)//will return a bad request error(400)
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ExceptionResponseBody resolveAndWriteException(HttpMessageNotReadableException exception, HttpServletRequest request) {

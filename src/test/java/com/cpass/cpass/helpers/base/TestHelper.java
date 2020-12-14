@@ -13,6 +13,7 @@ import java.util.List;
  *
  * @author Laughmare
  */
+//Any test helper cand derive from here. So we wont need to write the same code over and over again
 public class TestHelper {
     
     protected List<CpassError> errorList;

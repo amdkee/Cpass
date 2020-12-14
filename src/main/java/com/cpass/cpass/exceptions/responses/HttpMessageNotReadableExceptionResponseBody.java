@@ -11,6 +11,7 @@ import lombok.Setter;
  *
  * @author Laughmare
  */
+//If the request body json is invalid this will be the response body to that request. Contains a single message
 @Getter
 @Setter
 public class HttpMessageNotReadableExceptionResponseBody extends ExceptionResponseBody {

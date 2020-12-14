@@ -15,6 +15,7 @@ import com.cpass.cpass.helpers.base.TestHelper;
  *
  * @author Laughmare
  */
+//Request and response builders for MakeCall tests
 public class MakeCallTestHelper extends TestHelper{
     
 //  ----------------------------------------------------------------------------

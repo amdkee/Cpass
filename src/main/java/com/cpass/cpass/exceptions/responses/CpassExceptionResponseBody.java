@@ -13,6 +13,7 @@ import lombok.Setter;
  *
  * @author Laughmare
  */
+//CpassException is our custom wxception which we handle to return a specific style of response body
 @Getter
 @Setter
 public class CpassExceptionResponseBody extends ExceptionResponseBody {

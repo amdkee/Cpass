@@ -9,10 +9,10 @@ import lombok.Setter;
  *
  * @author Laughmare
  */
+//Any handled exception will have a path, and a timestamp
 @Getter
 @Setter
 public class ExceptionResponseBody {
-
     Date timeStamp;
     String path;
 

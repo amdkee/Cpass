@@ -23,10 +23,12 @@ public class CpassServiceImpl implements CpassService {
 
     @Override
     public MakeCallResponseBody makeCall(MakeCallRequestBody body) {
+        //If validations fail an exception will be thrown
         makeCallvalidator.validate(body);
         return buildMakeCallResponseBody(body.getCallType());
     }
 
+    //response is built here
     private MakeCallResponseBody buildMakeCallResponseBody(String callType) {
         MakeCallResponseBody response = new MakeCallResponseBody("Hello this is " + callType);
         return response;
